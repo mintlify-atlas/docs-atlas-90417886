@@ -1,80 +1,329 @@
 ---
-title: "Quickstart"
-description: "Start building awesome documentation in minutes"
+title: 'Quickstart Guide'
+description: 'Get started with ProjetosVoluntariosTech and start contributing to local community projects'
+icon: 'rocket'
 ---
 
-## Get started in three steps
+## Welcome to ProjetosVoluntariosTech
 
-Get your documentation site running locally and make your first customization.
-
-### Step 1: Set up your local environment
-
-<AccordionGroup>
-  <Accordion icon="copy" title="Clone your docs locally">
-    During the onboarding process, you created a GitHub repository with your docs content if you didn't already have one. You can find a link to this repository in your [dashboard](https://dashboard.mintlify.com).
-    
-    To clone the repository locally so that you can make and preview changes to your docs, follow the [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) guide in the GitHub docs.
-  </Accordion>
-  <Accordion icon="rectangle-terminal" title="Start the preview server">
-    1. Install the Mintlify CLI: `npm i -g mint`
-    2. Navigate to your docs directory and run: `mint dev`
-    3. Open `http://localhost:3000` to see your docs live!
-    
-    <Tip>Your preview updates automatically as you edit files.</Tip>
-  </Accordion>
-</AccordionGroup>
-
-### Step 2: Deploy your changes
-
-<AccordionGroup>
-  <Accordion icon="github" title="Install our GitHub app">
-    Install the Mintlify GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app).
-    
-    Our GitHub app automatically deploys your changes to your docs site, so you don't need to manage deployments yourself.
-</Accordion>
-<Accordion icon="palette" title="Update your site name and colors">
-    For a first change, let's update the name and colors of your docs site.
-
-    1. Open `docs.json` in your editor.
-    2. Change the `"name"` field to your project name.
-    3. Update the `"colors"` to match your brand.
-    4. Save and see your changes instantly at `http://localhost:3000`.
-
-    <Tip>Try changing the primary color to see an immediate difference!</Tip>
-  </Accordion>
-</AccordionGroup>
-
-### Step 3: Go live
-
-<Accordion icon="rocket" title="Publish your docs">
-  1. Commit and push your changes.
-  2. Your docs will update and be live in moments!
-</Accordion>
-
-## Next steps
-
-Now that you have your docs running, explore these key features:
-
-<CardGroup cols={2}>
-
-<Card title="Write Content" icon="pen-to-square" href="/essentials/markdown">
-  Learn MDX syntax and start writing your documentation.
-</Card>
-
-<Card title="Customize style" icon="palette" href="/essentials/settings">
-  Make your docs match your brand perfectly.
-</Card>
-
-<Card title="Add code examples" icon="square-code" href="/essentials/code">
-  Include syntax-highlighted code blocks.
-</Card>
-
-<Card title="API documentation" icon="code" href="/api-reference/introduction">
-  Auto-generate API docs from OpenAPI specs.
-</Card>
-
-</CardGroup>
+ProjetosVoluntariosTech uses technology and volunteer skills to create digital solutions for local communities. Our projects include website templates for microentrepreneurs, religious organizations, and community initiatives - all built with beginner-friendly HTML, CSS, and JavaScript.
 
 <Note>
-  **Need help?** See our [full documentation](https://mintlify.com/docs) or join our [community](https://mintlify.com/community).
+All projects are designed to be accessible for contributors of any technical level. No complex frameworks or build tools required!
 </Note>
+
+## Getting Started in 3 Steps
+
+<Steps>
+  <Step title="Clone the Repository">
+    First, download the project repository to your local machine:
+
+    ```bash
+    git clone https://github.com/Yudikom/ProjetosVoluntariosTech.git
+    cd ProjetosVoluntariosTech
+    ```
+
+    Or download the ZIP file directly:
+    - Visit the [GitHub repository](https://github.com/Yudikom/ProjetosVoluntariosTech)
+    - Click the green "Code" button
+    - Select "Download ZIP"
+    - Extract the files to your preferred location
+  </Step>
+
+  <Step title="Explore the Project Structure">
+    The repository is organized into individual project folders:
+
+    ```
+    ProjetosVoluntariosTech/
+    ├── README.md
+    ├── projeto1-Escola-Biblica/
+    │   └── index.html
+    └── projeto1-solucao-refrigeracao/
+        └── index.html
+    ```
+
+    Each project is a self-contained website with:
+    - **Single HTML file** - All code in one place for easy editing
+    - **Inline CSS** - Styling embedded in `<style>` tags
+    - **Vanilla JavaScript** - No external dependencies
+    - **CDN resources** - External libraries loaded from CDNs (Tailwind, Font Awesome)
+  </Step>
+
+  <Step title="Open and Preview Projects">
+    Simply open any `index.html` file in your web browser:
+
+    **Windows:**
+    ```bash
+    start projeto1-Escola-Biblica/index.html
+    ```
+
+    **macOS:**
+    ```bash
+    open projeto1-Escola-Biblica/index.html
+    ```
+
+    **Linux:**
+    ```bash
+    xdg-open projeto1-Escola-Biblica/index.html
+    ```
+
+    Or simply double-click the HTML file in your file explorer!
+  </Step>
+</Steps>
+
+## Current Projects Overview
+
+<CardGroup cols={2}>
+  <Card title="Escola Bíblica" icon="book-open" href="#escola-biblica-project">
+    Interactive portal for Bible school with lesson calendar, quizzes, and podcast integration
+  </Card>
+  <Card title="Solução Refrigeração" icon="snowflake" href="#solucao-refrigeracao-project">
+    Professional business website for a refrigeration and electrical services company
+  </Card>
+</CardGroup>
+
+---
+
+## Project Deep Dive
+
+### Escola Bíblica Project
+
+A complete educational portal for Bible studies with gamification features.
+
+**Key Features:**
+- 📅 **Interactive Calendar** - Navigate through 13 lessons with arrow controls
+- 📖 **Quiz System** - Embedded Google Forms for each lesson
+- 🏆 **Ranking System** - Leaderboard for student engagement
+- 🎧 **Podcast Integration** - Audio lessons via Google Drive links
+
+**Code Example - Navigation System:**
+
+```javascript
+function move(s) { 
+    currentIdx = (currentIdx + s + lessons.length) % lessons.length; 
+    render(); 
+}
+
+function tab(id) { 
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.getElementById('btn-' + id).classList.add('active');
+    window.scrollTo(0,0);
+}
+```
+
+**Code Example - Lesson Data Structure:**
+
+```javascript
+const lessons = [
+    { 
+        id: 1, 
+        t: "LIÇÃO 1 – Os discípulos de Cristo são novas criaturas", 
+        d: "02/01/2026", 
+        prof: "Pr. Vinicius Victor", 
+        img: "https://i.postimg.cc/bvVwgLsK/1.jpg", 
+        status: "Aula Ministrada", 
+        desc: "Estudo sobre Arrependimento e nova vida em Cristo.", 
+        prayer: "Que as vidas sejam transformadas pelo poder do Evangelho.", 
+        pod: "https://drive.google.com/file/d/...", 
+        form: "https://docs.google.com/forms/d/e/..."
+    }
+];
+```
+
+<Info>
+The Escola Bíblica project demonstrates how to build a full-featured educational platform using only vanilla JavaScript and CSS custom properties for theming.
+</Info>
+
+### Solução Refrigeração Project
+
+A modern, responsive business website for a refrigeration services company.
+
+**Key Features:**
+- 🎨 **Tailwind CSS** - Utility-first styling via CDN
+- 📱 **Responsive Design** - Mobile-first approach
+- 💬 **WhatsApp Integration** - Floating button with pulse animation
+- 🌐 **Service Showcase** - Comprehensive service listings with Font Awesome icons
+
+**Code Example - WhatsApp Float Button:**
+
+```html
+<a href="https://wa.me/5564992902925?text=Olá,%20gostaria%20de%20fazer%20um%20orçamento" 
+   class="whatsapp-float bg-green-500 text-white rounded-full p-4 shadow-lg" 
+   target="_blank">
+    <i class="fab fa-whatsapp text-4xl"></i>
+</a>
+```
+
+```css
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+```
+
+**Code Example - Hero Section with Gradient Effects:**
+
+```html
+<div class="md:w-1/2 w-full flex justify-center z-10">
+    <div class="relative w-full max-w-lg">
+        <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl blur opacity-30"></div>
+        <img src="https://i.postimg.cc/T3rmBny2/animação3.gif" 
+             alt="Animação Técnica Solução" 
+             class="relative rounded-2xl shadow-2xl w-full">
+    </div>
+</div>
+```
+
+<Tip>
+This project shows how to create professional business websites using Tailwind CSS via CDN - no build process needed!
+</Tip>
+
+## Making Your First Contribution
+
+<Steps>
+  <Step title="Choose a Project to Improve">
+    Browse the existing projects and identify an area for improvement:
+    - Add new features
+    - Improve accessibility
+    - Enhance mobile responsiveness
+    - Fix bugs or issues
+    - Update content
+  </Step>
+
+  <Step title="Edit the HTML File">
+    Open the `index.html` file in your favorite code editor:
+
+    ```bash
+    # Using VS Code
+    code projeto1-Escola-Biblica/index.html
+
+    # Using nano
+    nano projeto1-Escola-Biblica/index.html
+    ```
+
+    Make your changes and save the file.
+  </Step>
+
+  <Step title="Test Your Changes">
+    Refresh the browser to see your changes in real-time:
+
+    <CodeGroup>
+    ```bash Windows
+    # No build step needed - just refresh your browser!
+    # Press Ctrl+R or F5
+    ```
+
+    ```bash macOS
+    # No build step needed - just refresh your browser!
+    # Press Cmd+R
+    ```
+    </CodeGroup>
+  </Step>
+
+  <Step title="Share Your Contribution">
+    Once you're happy with your changes, share them with the community:
+
+    ```bash
+    git add .
+    git commit -m "Improved accessibility in Escola Bíblica navigation"
+    git push origin main
+    ```
+  </Step>
+</Steps>
+
+<Warning>
+Before pushing changes, make sure all links are working and the page displays correctly on both desktop and mobile devices.
+</Warning>
+
+## Development Tips
+
+### Using Browser DevTools
+
+All projects can be debugged using your browser's developer tools:
+
+1. **Right-click** on any element → **Inspect**
+2. Edit CSS in real-time in the **Styles** panel
+3. Debug JavaScript in the **Console** tab
+4. Test responsive design in **Device Mode** (Ctrl+Shift+M)
+
+### Common Customizations
+
+<Accordion title="Changing Colors">
+  Both projects use CSS custom properties for easy theming:
+
+  ```css
+  :root { 
+      --p: #1a365d;  /* Primary color */
+      --s: #2b6cb0;  /* Secondary color */
+      --a: #ed8936;  /* Accent color */
+      --bg: #f7fafc; /* Background */
+  }
+  ```
+
+  Simply update these values to rebrand the entire site!
+</Accordion>
+
+<Accordion title="Adding New Lessons (Escola Bíblica)">
+  Add a new object to the `lessons` array:
+
+  ```javascript
+  { 
+      id: 14, 
+      t: "LIÇÃO 14 – Your New Lesson Title", 
+      d: "03/04/2026", 
+      prof: "Your Name", 
+      img: "https://your-image-url.jpg", 
+      status: "Em breve", 
+      desc: "Lesson description", 
+      prayer: "Prayer topic", 
+      pod: "#", 
+      form: null 
+  }
+  ```
+</Accordion>
+
+<Accordion title="Adding Services (Solução Refrigeração)">
+  Copy an existing service card and modify:
+
+  ```html
+  <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition border-l-4 border-blue-600">
+      <h4 class="font-bold text-xl mb-4 text-blue-800">
+          <i class="fas fa-your-icon mr-2"></i>Your Service Name
+      </h4>
+      <ul class="space-y-2 text-sm text-gray-700">
+          <li class="flex items-start">
+              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+              Service detail 1
+          </li>
+      </ul>
+  </div>
+  ```
+</Accordion>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Learn Our Mission" icon="heart" href="/mission">
+    Understand the social impact and volunteer education goals
+  </Card>
+  <Card title="Join the Community" icon="users" href="https://github.com/Yudikom/ProjetosVoluntariosTech">
+    Connect with other volunteers on GitHub
+  </Card>
+</CardGroup>
+
+---
+
+<Info>
+**Need help?** Open an issue on our [GitHub repository](https://github.com/Yudikom/ProjetosVoluntariosTech/issues) and the community will assist you!
+</Info>

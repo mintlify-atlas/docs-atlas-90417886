@@ -1,0 +1,623 @@
+---
+title: 'Code Guidelines'
+description: 'Coding standards and best practices for ProjetosVoluntariosTech'
+icon: 'code'
+---
+
+## Overview
+
+This guide outlines the coding standards for ProjetosVoluntariosTech. Following these guidelines ensures consistency across all projects and makes code easier to maintain.
+
+<Note>
+  Our projects use vanilla HTML, CSS, and JavaScript to keep them accessible for beginners and easily maintainable.
+</Note>
+
+## General Principles
+
+<CardGroup cols={2}>
+  <Card title="Keep It Simple" icon="lightbulb">
+    Write clear, readable code that others can understand
+  </Card>
+  <Card title="Mobile First" icon="mobile">
+    Design for mobile devices first, then enhance for larger screens
+  </Card>
+  <Card title="Accessibility" icon="universal-access">
+    Ensure your code is usable by everyone, including people with disabilities
+  </Card>
+  <Card title="Performance" icon="bolt">
+    Optimize for fast loading times and smooth interactions
+  </Card>
+</CardGroup>
+
+## HTML Best Practices
+
+### Semantic HTML
+
+Use semantic HTML5 elements to improve accessibility and SEO:
+
+<CodeGroup>
+```html Good Example
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Name - Description</title>
+</head>
+<body>
+    <header>
+        <h1>Site Title</h1>
+        <nav>
+            <button class="nav-btn">Home</button>
+            <button class="nav-btn">About</button>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="intro">
+            <h2>Welcome</h2>
+            <p>Content goes here...</p>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2026 Organization Name</p>
+    </footer>
+</body>
+</html>
+```
+
+```html Bad Example
+<!-- Avoid using divs for everything -->
+<div class="header">
+    <div class="title">Site Title</div>
+    <div class="navigation">
+        <div class="nav-item">Home</div>
+        <div class="nav-item">About</div>
+    </div>
+</div>
+
+<div class="main-content">
+    <div class="section">
+        <div class="heading">Welcome</div>
+        <div class="text">Content goes here...</div>
+    </div>
+</div>
+```
+</CodeGroup>
+
+### Required Meta Tags
+
+Every HTML file should include these essential meta tags:
+
+```html
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descriptive Page Title</title>
+    
+    <!-- Optional but recommended -->
+    <meta name="description" content="Brief description of the page">
+    <meta name="author" content="ProjetosVoluntariosTech">
+</head>
+```
+
+### Accessibility
+
+<Warning>
+  Accessibility is not optional. Always include alt text, ARIA labels, and keyboard navigation support.
+</Warning>
+
+<Tabs>
+  <Tab title="Images">
+    ```html
+    <!-- Always include descriptive alt text -->
+    <img src="logo.png" alt="Organization logo" class="logo">
+    
+    <!-- For decorative images -->
+    <img src="decoration.png" alt="" role="presentation">
+    ```
+  </Tab>
+  
+  <Tab title="Buttons">
+    ```html
+    <!-- Descriptive button text -->
+    <button class="nav-btn" onclick="tab('calendar')">
+        📅 Calendar
+    </button>
+    
+    <!-- ARIA label for icon-only buttons -->
+    <button class="nav-arrow" aria-label="Previous lesson">
+        ❮
+    </button>
+    ```
+  </Tab>
+  
+  <Tab title="Links">
+    ```html
+    <!-- Clear link purpose -->
+    <a href="https://example.com" target="_blank" rel="noopener noreferrer">
+        Visit Official Website
+    </a>
+    
+    <!-- WhatsApp link with context -->
+    <a href="https://wa.me/5564992902925?text=Hello" 
+       class="btn-contact"
+       target="_blank"
+       aria-label="Contact us on WhatsApp">
+        <i class="fab fa-whatsapp"></i> Contact
+    </a>
+    ```
+  </Tab>
+</Tabs>
+
+## CSS Best Practices
+
+### CSS Variables (Custom Properties)
+
+Use CSS variables for consistent theming, as seen in our Escola Biblica project:
+
+<CodeGroup>
+```css Good Example - From escola-biblica/index.html
+:root {
+    --p: #1a365d;      /* Primary color */
+    --s: #2b6cb0;      /* Secondary color */
+    --a: #ed8936;      /* Accent color */
+    --bg: #f7fafc;     /* Background color */
+}
+
+body {
+    background: var(--bg);
+    color: #2d3748;
+}
+
+header {
+    background: var(--p);
+    border-bottom: 5px solid var(--a);
+}
+
+.nav-btn.active {
+    color: var(--s);
+    border-bottom: 3px solid var(--s);
+}
+```
+
+```css Bad Example
+/* Hard-coded colors scattered throughout */
+body {
+    background: #f7fafc;
+    color: #2d3748;
+}
+
+header {
+    background: #1a365d;
+    border-bottom: 5px solid #ed8936;
+}
+
+.nav-btn.active {
+    color: #2b6cb0;
+    border-bottom: 3px solid #2b6cb0;
+}
+```
+</CodeGroup>
+
+### Responsive Design
+
+Always use responsive units and media queries:
+
+```css
+/* Mobile-first approach */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+/* Flexible layouts */
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;  /* Wrap on smaller screens */
+}
+
+/* Responsive typography */
+header h1 {
+    font-size: 1.8rem;
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+}
+```
+
+### Component-Based Styling
+
+Organize styles by component for better maintainability:
+
+```css
+/* Card Component - From escola-biblica project */
+.card-container {
+    position: relative;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.lesson-img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.lesson-content {
+    padding: 25px;
+}
+
+/* Status Badge Component */
+.status-badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.status-done {
+    background: #c6f6d5;
+    color: #22543d;
+}
+
+.status-soon {
+    background: #bee3f8;
+    color: #2a4365;
+}
+```
+
+### Using Tailwind CSS
+
+For projects using Tailwind (like solucao-refrigeracao):
+
+<CodeGroup>
+```html Good Example
+<!-- Utility-first approach -->
+<nav class="bg-white shadow-md fixed w-full z-50">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-blue-900 tracking-tighter">SOLUÇÃO</h1>
+        <div class="hidden md:flex space-x-8 text-sm font-medium">
+            <a href="#inicio" class="hover:text-blue-600 transition">Início</a>
+            <a href="#servicos" class="hover:text-blue-600 transition">Serviços</a>
+        </div>
+    </div>
+</nav>
+```
+
+```html Bad Example
+<!-- Over-styling with custom CSS when Tailwind classes exist -->
+<nav style="background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 16px;">
+        <h1 style="font-size: 24px; font-weight: bold; color: #1a365d;">SOLUÇÃO</h1>
+    </div>
+</nav>
+```
+</CodeGroup>
+
+<Tip>
+  When using Tailwind, prefer utility classes over custom CSS. Only create custom styles when necessary.
+</Tip>
+
+## JavaScript Best Practices
+
+### Clean, Readable Code
+
+Write JavaScript that's easy to understand and maintain:
+
+<CodeGroup>
+```javascript Good Example - From escola-biblica project
+// Data structure
+const lessons = [
+    {
+        id: 1,
+        t: "LIÇÃO 1 – Os discípulos de Cristo são novas criaturas",
+        d: "02/01/2026",
+        prof: "Pr. Vinicius Victor",
+        img: "https://i.postimg.cc/bvVwgLsK/1.jpg",
+        status: "Aula Ministrada",
+        desc: "Estudo sobre Arrependimento e nova vida em Cristo.",
+        prayer: "Que as vidas sejam transformadas pelo poder do Evangelho.",
+        pod: "https://drive.google.com/file/...",
+        form: "https://docs.google.com/forms/..."
+    },
+    // More lessons...
+];
+
+// State management
+let currentIdx = 0;
+let quizIdx = 0;
+
+// Render function
+function render() {
+    const l = lessons[currentIdx];
+    const statusClass = l.status === "Aula Ministrada" ? "status-done" : "status-soon";
+    
+    document.getElementById('card-content').innerHTML = `
+        <img src="${l.img}" class="lesson-img" alt="${l.t}">
+        <div class="lesson-content">
+            <span class="status-badge ${statusClass}">${l.status}</span>
+            <h2 class="lesson-title">${l.t}</h2>
+        </div>
+    `;
+}
+
+// Navigation functions
+function move(step) {
+    currentIdx = (currentIdx + step + lessons.length) % lessons.length;
+    render();
+}
+
+function tab(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.getElementById('btn-' + id).classList.add('active');
+    window.scrollTo(0, 0);
+}
+
+// Initialize
+render();
+```
+
+```javascript Bad Example
+// Unclear variable names and no structure
+var x = 0;
+var y = 0;
+
+function doStuff() {
+    var thing = document.getElementById('thing');
+    thing.innerHTML = data[x].name;
+}
+
+function next() {
+    x++;
+    if (x >= data.length) x = 0;
+    doStuff();
+}
+
+function changeTab(t) {
+    document.getElementById('t1').style.display = 'none';
+    document.getElementById('t2').style.display = 'none';
+    document.getElementById(t).style.display = 'block';
+}
+```
+</CodeGroup>
+
+### Avoid Global Pollution
+
+<Warning>
+  Minimize global variables to prevent conflicts and improve code organization.
+</Warning>
+
+<CodeGroup>
+```javascript Good Example
+(function() {
+    // All variables scoped within this function
+    const lessons = [...];
+    let currentIdx = 0;
+    
+    function render() {
+        // Implementation
+    }
+    
+    // Only expose what's needed globally
+    window.LessonApp = {
+        render: render,
+        navigate: move
+    };
+})();
+```
+
+```javascript Bad Example
+// Everything in global scope
+var lessons = [...];
+var currentIdx = 0;
+var quizIdx = 0;
+var data = {};
+var config = {};
+// etc...
+```
+</CodeGroup>
+
+### Event Handling
+
+```javascript
+// Prefer addEventListener over inline handlers
+// Good
+document.getElementById('nextBtn').addEventListener('click', () => move(1));
+
+// Acceptable for simple cases (as in our examples)
+<button onclick="move(1)">Next</button>
+
+// Event delegation for dynamic content
+document.querySelector('.quiz-selector').addEventListener('click', (e) => {
+    if (e.target.classList.contains('quiz-bullet')) {
+        const index = e.target.dataset.index;
+        setQuiz(index);
+    }
+});
+```
+
+## File Organization
+
+```plaintext
+project-name/
+├── index.html          # Main HTML file
+├── styles.css          # Optional: External CSS
+├── script.js           # Optional: External JS
+├── assets/
+│   ├── images/         # Local images
+│   └── fonts/          # Custom fonts
+└── README.md           # Project documentation
+```
+
+<Tip>
+  For simple projects, inline CSS and JavaScript in the HTML file is acceptable. For larger projects, separate files improve maintainability.
+</Tip>
+
+## Comments and Documentation
+
+### HTML Comments
+
+```html
+<!-- Main Navigation -->
+<nav>
+    <!-- Primary navigation items -->
+    <button class="nav-btn">Home</button>
+</nav>
+
+<!-- Hero Section with animated background -->
+<header class="hero-bg">
+    <!-- Content -->
+</header>
+```
+
+### CSS Comments
+
+```css
+/* ==================
+   Color Variables
+   ================== */
+:root {
+    --p: #1a365d;  /* Primary - Dark blue */
+    --s: #2b6cb0;  /* Secondary - Medium blue */
+}
+
+/* Card Component */
+.card-container {
+    /* Positioning and layout */
+    position: relative;
+    
+    /* Visual styling */
+    background: white;
+    border-radius: 15px;
+}
+```
+
+### JavaScript Comments
+
+```javascript
+/**
+ * Renders the current lesson card to the DOM
+ * Updates both the main card view and quiz selector
+ */
+function render() {
+    const l = lessons[currentIdx];
+    
+    // Determine status badge styling
+    const statusClass = l.status === "Aula Ministrada" 
+        ? "status-done" 
+        : "status-soon";
+    
+    // Update card content
+    document.getElementById('card-content').innerHTML = `...`;
+}
+```
+
+## Testing Checklist
+
+Before submitting your code:
+
+<Steps>
+  <Step title="Browser Testing">
+    - [ ] Chrome (latest)
+    - [ ] Firefox (latest)
+    - [ ] Safari (latest)
+    - [ ] Edge (latest)
+  </Step>
+  
+  <Step title="Device Testing">
+    - [ ] Mobile (375px width)
+    - [ ] Tablet (768px width)
+    - [ ] Desktop (1920px width)
+  </Step>
+  
+  <Step title="Accessibility">
+    - [ ] Keyboard navigation works
+    - [ ] Screen reader compatible
+    - [ ] Color contrast meets WCAG AA
+    - [ ] All images have alt text
+  </Step>
+  
+  <Step title="Performance">
+    - [ ] Images optimized
+    - [ ] No console errors
+    - [ ] Fast load time (under 3 seconds)
+    - [ ] Smooth animations (60fps)
+  </Step>
+  
+  <Step title="Validation">
+    - [ ] HTML validates ([W3C Validator](https://validator.w3.org/))
+    - [ ] CSS validates ([CSS Validator](https://jigsaw.w3.org/css-validator/))
+    - [ ] No JavaScript errors
+  </Step>
+</Steps>
+
+## Common Patterns in Our Projects
+
+### Tab/Section Switching
+
+```javascript
+// Pattern used in escola-biblica project
+function tab(id) {
+    // Hide all sections
+    document.querySelectorAll('.section').forEach(s => 
+        s.classList.remove('active')
+    );
+    
+    // Remove active state from all buttons
+    document.querySelectorAll('.nav-btn').forEach(b => 
+        b.classList.remove('active')
+    );
+    
+    // Show selected section
+    document.getElementById(id).classList.add('active');
+    
+    // Activate corresponding button
+    document.getElementById('btn-' + id).classList.add('active');
+    
+    // Scroll to top
+    window.scrollTo(0, 0);
+}
+```
+
+### Carousel/Slider Navigation
+
+```javascript
+// Circular navigation pattern
+function move(step) {
+    currentIdx = (currentIdx + step + lessons.length) % lessons.length;
+    render();
+}
+```
+
+### Sticky Navigation
+
+```css
+nav {
+    display: flex;
+    justify-content: center;
+    background: white;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+```
+
+---
+
+<Card title="Next: Project Workflow" icon="diagram-project" href="/contributing/project-workflow">
+  Learn about our project lifecycle from idea to deployment
+</Card>

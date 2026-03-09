@@ -1,0 +1,343 @@
+---
+title: 'Our Mission'
+description: 'Empowering local communities through volunteer-driven technology projects'
+icon: 'heart'
+---
+
+## Using Technology to Transform Communities
+
+ProjetosVoluntariosTech is built on a simple but powerful principle: **use knowledge, technology, and our own resources to generate value in the local community**.
+
+We believe that everyone, regardless of technical level, can contribute to meaningful digital transformation projects that help real people and organizations.
+
+<Note>
+**"O objetivo do ProjetosVoluntariosTech é usar conhecimento, tecnologia e recursos próprios para gerar valor na comunidade local."**
+
+Our goal is to use knowledge, technology, and our own resources to generate value in the local community.
+</Note>
+
+## Our Social Impact
+
+ProjetosVoluntariosTech focuses on creating free, professional-quality websites for those who need them most:
+
+<CardGroup cols={2}>
+  <Card title="Religious Organizations" icon="church">
+    Supporting community faith groups with modern digital platforms for education and engagement
+  </Card>
+  <Card title="Microentrepreneurs" icon="store">
+    Helping small businesses establish professional online presence without expensive development costs
+  </Card>
+  <Card title="Community Organizations" icon="users">
+    Providing digital infrastructure for local initiatives and nonprofit groups
+  </Card>
+  <Card title="Educational Initiatives" icon="graduation-cap">
+    Creating interactive learning platforms for community education programs
+  </Card>
+</CardGroup>
+
+## Real Impact Stories
+
+### Escola Bíblica: Digital Education for Faith Communities
+
+We built a complete educational portal for a local Bible school, transforming traditional paper-based lessons into an engaging digital experience.
+
+**The Challenge:**
+- Traditional Bible school relied on printed materials
+- Limited student engagement and participation tracking
+- No way to provide supplemental audio content
+- Difficult to assess learning outcomes
+
+**Our Solution:**
+A fully-featured educational platform with:
+
+```javascript
+// 13 complete lessons with rich metadata
+const lessons = [
+    { 
+        id: 1, 
+        t: "Os discípulos de Cristo são novas criaturas",
+        status: "Aula Ministrada",
+        desc: "Estudo sobre Arrependimento e nova vida em Cristo",
+        prayer: "Que as vidas sejam transformadas pelo poder do Evangelho",
+        pod: "https://drive.google.com/file/d/...",  // Audio lessons
+        form: "https://docs.google.com/forms/d/e/..."  // Interactive quizzes
+    }
+];
+```
+
+**The Impact:**
+- ✅ 13 interactive lessons with navigation system
+- ✅ Embedded Google Forms quizzes for each lesson
+- ✅ Podcast integration for audio learning
+- ✅ Mobile-responsive design for access anywhere
+- ✅ Prayer topics to guide community spiritual practice
+- ✅ Upcoming leaderboard system to gamify learning
+
+<Info>
+The Escola Bíblica portal demonstrates how simple web technologies can create sophisticated educational experiences - all without expensive learning management systems.
+</Info>
+
+### Solução Refrigeração: Empowering Small Business
+
+We created a professional website for a local refrigeration and electrical services company in Caldas Novas, GO.
+
+**The Challenge:**
+- Small business with limited marketing budget
+- No online presence to reach new customers
+- Diverse service offerings difficult to communicate
+- Needed mobile-friendly solution for on-the-go customers
+
+**Our Solution:**
+A modern, conversion-optimized business website:
+
+```html
+<!-- Direct WhatsApp integration for instant customer contact -->
+<a href="https://wa.me/5564992902925?text=Olá,%20gostaria%20de%20fazer%20um%20orçamento" 
+   class="whatsapp-float bg-green-500 text-white rounded-full p-4 shadow-lg" 
+   target="_blank">
+    <i class="fab fa-whatsapp text-4xl"></i>
+</a>
+```
+
+**The Impact:**
+- ✅ Professional online presence at zero development cost
+- ✅ Comprehensive service listings (A/C, refrigeration, washers, butcher equipment, milking machines)
+- ✅ Direct WhatsApp integration for immediate customer contact
+- ✅ Mobile-responsive design with Tailwind CSS
+- ✅ SEO-optimized content for local search visibility
+- ✅ Instagram and contact integration for social proof
+
+<Tip>
+This project shows how volunteer developers can help microentrepreneurs compete with larger companies by providing professional digital presence.
+</Tip>
+
+## Volunteer Education: Learn by Doing
+
+One of our core missions is **educating volunteers** through hands-on project experience. We deliberately choose technologies and approaches that lower barriers to entry.
+
+### Our Beginner-Friendly Approach
+
+<CardGroup cols={3}>
+  <Card title="No Build Tools" icon="hammer">
+    All projects run directly in the browser - no Node.js, webpack, or complex tooling required
+  </Card>
+  <Card title="Single-File Architecture" icon="file-code">
+    Everything in one HTML file makes it easy to understand the complete project
+  </Card>
+  <Card title="Plain JavaScript" icon="js">
+    Vanilla JS instead of frameworks - learn fundamental web development skills
+  </Card>
+  <Card title="CDN Libraries" icon="cloud">
+    Use modern tools like Tailwind CSS via CDN - no installation needed
+  </Card>
+  <Card title="Real Projects" icon="briefcase">
+    Work on actual websites serving real communities - not toy examples
+  </Card>
+  <Card title="Immediate Results" icon="bolt">
+    See your changes instantly by refreshing the browser - fast feedback loop
+  </Card>
+</CardGroup>
+
+### What Volunteers Learn
+
+By contributing to ProjetosVoluntariosTech, volunteers gain practical experience in:
+
+<Steps>
+  <Step title="HTML Fundamentals">
+    Semantic markup, accessibility, forms, and document structure:
+
+    ```html
+    <header>
+        <img src="https://i.postimg.cc/L6WHM8tF/Brasao-(1).png" 
+             alt="Brasão" class="brasao">
+        <h1>ESCOLA BÍBLICA</h1>
+        <div class="logo-sub">CRESCIMENTO & ENGAJAMENTO</div>
+    </header>
+    ```
+  </Step>
+
+  <Step title="CSS Styling & Responsive Design">
+    Modern CSS techniques including custom properties, flexbox, grid, and animations:
+
+    ```css
+    :root { 
+        --p: #1a365d; 
+        --s: #2b6cb0; 
+        --a: #ed8936; 
+        --bg: #f7fafc; 
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+        70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+        100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+    ```
+  </Step>
+
+  <Step title="JavaScript Interactivity">
+    DOM manipulation, event handling, and state management:
+
+    ```javascript
+    function tab(id) { 
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        document.getElementById('btn-' + id).classList.add('active');
+        window.scrollTo(0,0);
+    }
+    ```
+  </Step>
+
+  <Step title="Modern Frameworks">
+    Working with utility-first CSS frameworks like Tailwind:
+
+    ```html
+    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl 
+                transition duration-300 border-l-4 border-blue-600">
+        <h4 class="font-bold text-xl mb-4 text-blue-800">
+            <i class="fas fa-wind mr-2"></i>Ar Condicionado
+        </h4>
+    </div>
+    ```
+  </Step>
+
+  <Step title="UX/UI Design Principles">
+    Creating intuitive navigation, visual hierarchy, and user engagement:
+
+    - Card-based layouts for content organization
+    - Hover effects for interactivity feedback  
+    - Color coding for status indicators
+    - Responsive navigation systems
+    - Call-to-action optimization
+  </Step>
+
+  <Step title="Git & Collaboration">
+    Version control, pull requests, and collaborative development workflows
+  </Step>
+</Steps>
+
+<Warning>
+**We welcome all skill levels!** Whether you're making your first code contribution or you're an experienced developer, there's a way for you to help.
+</Warning>
+
+## Accessibility & Inclusion
+
+We're committed to making our projects accessible to all users:
+
+### Technical Accessibility
+
+```html
+<!-- Proper semantic HTML -->
+<nav>
+    <button id="btn-calendario" class="nav-btn active" 
+            onclick="tab('calendario')">
+        📅 CALENDÁRIO
+    </button>
+</nav>
+
+<!-- Meaningful alt text for images -->
+<img src="https://i.postimg.cc/L6WHM8tF/Brasao-(1).png" 
+     alt="Brasão" class="brasao">
+
+<!-- ARIA labels for interactive elements -->
+<a href="https://wa.me/5564992902925" 
+   aria-label="Falar no WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+```
+
+### Volunteer Inclusion
+
+From the README:
+
+> **"Queremos que todos, independentemente do nível técnico, possam contribuir."**
+>
+> We want everyone, regardless of technical level, to be able to contribute.
+
+This isn't just a statement - it's reflected in our technical choices:
+
+- ✅ No complex development environment setup
+- ✅ Portuguese and English documentation
+- ✅ Clear code structure and comments
+- ✅ Real-world projects with immediate impact
+- ✅ Supportive community for questions
+
+## Community-Driven Development
+
+### Our Values
+
+<CardGroup cols={2}>
+  <Card title="Transparency" icon="eye">
+    All code is open source. All decisions are documented. Everyone can see and contribute to the project direction.
+  </Card>
+  <Card title="Collaboration" icon="handshake">
+    We work together, share knowledge, and support each other's growth as developers and community members.
+  </Card>
+  <Card title="Quality" icon="star">
+    Volunteer doesn't mean amateur. We create professional-grade solutions that serve real community needs.
+  </Card>
+  <Card title="Impact" icon="chart-line">
+    Every project must create measurable value for the local community - whether that's education, economic opportunity, or access to services.
+  </Card>
+</CardGroup>
+
+## How We Measure Success
+
+Our impact isn't measured in lines of code - it's measured in:
+
+- 📚 **Educational reach**: Number of students using the Escola Bíblica platform
+- 💼 **Business growth**: Customer inquiries generated for Solução Refrigeração
+- 👥 **Volunteer development**: Skills gained by contributors
+- 🌐 **Digital inclusion**: Community members gaining access to online services
+- 🤝 **Organizational capacity**: Nonprofits and faith groups empowered with digital tools
+
+## Join Our Mission
+
+<Steps>
+  <Step title="Explore the Projects">
+    Visit our [GitHub repository](https://github.com/Yudikom/ProjetosVoluntariosTech) and explore the existing projects.
+  </Step>
+
+  <Step title="Find Your Contribution">
+    Whether you're a designer, developer, writer, or community organizer - there's a way to help:
+    
+    - **Developers**: Add features, fix bugs, improve code quality
+    - **Designers**: Enhance UI/UX, create graphics, improve accessibility
+    - **Writers**: Document features, translate content, write tutorials
+    - **Community Members**: Test websites, provide feedback, suggest new projects
+  </Step>
+
+  <Step title="Start Contributing">
+    Check out our [Quickstart Guide](/quickstart) to set up your development environment and make your first contribution.
+  </Step>
+
+  <Step title="Propose New Projects">
+    Know a local organization that needs digital help? Open an issue on GitHub to propose a new ProjetosVoluntariosTech initiative!
+  </Step>
+</Steps>
+
+---
+
+## Contact & Community
+
+<CardGroup cols={2}>
+  <Card title="GitHub" icon="github" href="https://github.com/Yudikom/ProjetosVoluntariosTech">
+    View code, open issues, submit pull requests
+  </Card>
+  <Card title="Get Started" icon="rocket" href="/quickstart">
+    Jump into contributing with our quickstart guide
+  </Card>
+</CardGroup>
+
+<Info>
+**"Use a tecnologia em favor do reino, seu WhatsApp é para a glória de Deus e sua Rede Social é para a glória de Deus."**
+
+Use technology for good. Your WhatsApp is for God's glory, and your social media is for God's glory. - From the Escola Bíblica footer
+</Info>
+
+---
+
+<Note>
+ProjetosVoluntariosTech is licensed under the MIT License. You are free to use, copy, modify, and distribute the software for any purpose.
+</Note>

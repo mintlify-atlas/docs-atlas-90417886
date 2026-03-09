@@ -1,0 +1,412 @@
+---
+title: 'Escola Bíblica Portal'
+description: 'Interactive Bible school platform with calendar, quiz system, and ranking'
+icon: 'book-bible'
+---
+
+## Overview
+
+The Escola Bíblica (Bible School) portal is an interactive web application designed to facilitate religious education. It features a lesson calendar, embedded quiz system, and student ranking functionality.
+
+<Note>
+  This project demonstrates advanced DOM manipulation, state management, and dynamic content rendering using vanilla JavaScript.
+</Note>
+
+## Key Features
+
+<CardGroup cols={3}>
+  <Card title="Lesson Calendar" icon="calendar">
+    Navigate through 13 lessons with carousel controls
+  </Card>
+  <Card title="Quiz System" icon="circle-question">
+    Embedded Google Forms for each lesson
+  </Card>
+  <Card title="Ranking Board" icon="trophy">
+    Student achievement tracking (coming soon)
+  </Card>
+</CardGroup>
+
+## Design System
+
+### CSS Custom Properties
+
+The project uses CSS variables for consistent theming:
+
+```css
+:root { 
+  --p: #1a365d;  /* Primary - Dark Blue */
+  --s: #2b6cb0;  /* Secondary - Medium Blue */
+  --a: #ed8936;  /* Accent - Orange */
+  --bg: #f7fafc; /* Background - Light Gray */
+}
+```
+
+### Typography and Layout
+
+```css
+body { 
+  margin: 0; 
+  font-family: 'Segoe UI', sans-serif; 
+  background: var(--bg); 
+  color: #2d3748; 
+}
+
+header { 
+  background: var(--p); 
+  color: white; 
+  padding: 25px; 
+  text-align: center; 
+  border-bottom: 5px solid var(--a); 
+}
+```
+
+## Navigation System
+
+### Tab-Based Interface
+
+The portal uses a sticky navigation bar with three main sections:
+
+```css
+nav { 
+  display: flex; 
+  justify-content: center; 
+  background: white; 
+  position: sticky; 
+  top: 0; 
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+  z-index: 100; 
+}
+
+.nav-btn { 
+  border: none; 
+  background: none; 
+  padding: 15px 10px; 
+  font-weight: bold; 
+  color: #4a5568; 
+  cursor: pointer; 
+  border-bottom: 3px solid transparent; 
+  transition: 0.3s; 
+  font-size: 0.8rem; 
+}
+
+.nav-btn.active { 
+  color: var(--s); 
+  border-bottom: 3px solid var(--s); 
+}
+```
+
+### Tab Switching Logic
+
+```javascript
+function tab(id) { 
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.getElementById('btn-' + id).classList.add('active');
+  window.scrollTo(0,0);
+}
+```
+
+## Lesson Data Structure
+
+The application manages 13 lessons with a comprehensive data model:
+
+<Tabs>
+  <Tab title="Data Model">
+    ```javascript
+    const lessons = [
+      { 
+        id: 1, 
+        t: "LIÇÃO 1 – Os discípulos de Cristo são novas criaturas", 
+        d: "02/01/2026", 
+        prof: "Pr. Vinicius Victor", 
+        img: "https://i.postimg.cc/bvVwgLsK/1.jpg", 
+        status: "Aula Ministrada", 
+        desc: "Estudo sobre Arrependimento e nova vida em Cristo.", 
+        prayer: "Que as vidas sejam transformadas pelo poder do Evangelho.", 
+        pod: "https://drive.google.com/file/d/1dmCjo256Gl6nkXjvHlKKid5kOVQJhH2-/view", 
+        form: "https://docs.google.com/forms/d/e/1FAIpQLSdtB4SutFbrC2nwEwLdeMaDKS1aqrA7rRk3Fe6NQFVXlemHCg/viewform?embedded=true" 
+      },
+      { 
+        id: 2, 
+        t: "LIÇÃO 2 – Princípios bíblicos para a vida dos discípulos", 
+        d: "09/01/2026", 
+        prof: "Pr. Armindo", 
+        img: "https://i.postimg.cc/yNp8jnk2/2.jpg", 
+        status: "Aula Ministrada", 
+        desc: "Compreensão dos padrões Bíblicos da vida e o caminho de paz.", 
+        prayer: "Que sejamos fiéis aos princípios de Jesus.", 
+        pod: "https://drive.google.com/file/d/13HKX9GD7qGCI5-JqVfGjT4zM92qHl9Is/view", 
+        form: "https://docs.google.com/forms/d/e/1FAIpQLSfsUngExK7qcUjM-bSjPzsAVbZ1S2LOOeVg4d7vBXQPJHTn6w/viewform?embedded=true" 
+      },
+      // ... 11 more lessons
+    ];
+    ```
+  </Tab>
+  
+  <Tab title="Properties">
+    Each lesson object contains:
+    
+    - `id`: Unique lesson identifier (1-13)
+    - `t`: Lesson title
+    - `d`: Date in DD/MM/YYYY format
+    - `prof`: Professor name
+    - `img`: Cover image URL
+    - `status`: "Aula Ministrada" or "Em breve"
+    - `desc`: Lesson description
+    - `prayer`: Prayer purpose for the lesson
+    - `pod`: Podcast/audio link (Google Drive)
+    - `form`: Google Forms quiz URL (null if not available)
+  </Tab>
+</Tabs>
+
+## Carousel System
+
+### Lesson Card Rendering
+
+The carousel dynamically renders lesson cards with status-based styling:
+
+```javascript
+function render() {
+  const l = lessons[currentIdx];
+  const statusClass = l.status === "Aula Ministrada" ? "status-done" : "status-soon";
+  const podCall = l.status === "Aula Ministrada" 
+    ? "Reveja o que aprendemos!" 
+    : "Se prepare para essa aprendizagem!";
+
+  document.getElementById('card-content').innerHTML = `
+    <img src="${l.img}" class="lesson-img">
+    <div class="lesson-content">
+      <span class="status-badge ${statusClass}">${l.status}</span>
+      <div style="font-size:0.9rem; color:var(--a); font-weight:bold; margin-bottom:5px;">
+        📅 ${l.d} | Prof: ${l.prof}
+      </div>
+      <h2 class="lesson-title">${l.t}</h2>
+      <div class="info-box">
+        <strong>📖 Descrição:</strong><br>
+        <span style="font-size:0.95rem; color:#4a5568;">${l.desc}</span>
+      </div>
+      <div class="prayer-box">
+        <strong>🙏 Propósito de Oração desta lição:</strong><br>
+        <span style="font-size:0.95rem;">${l.prayer}</span>
+      </div>
+      <div class="podcast-call">
+        <p style="margin:0; color:#744210; font-weight:bold;">• ${podCall}</p>
+        <a href="${l.pod}" target="_blank" class="btn-podcast">🎧 ESCUTAR PODCAST</a>
+      </div>
+    </div>
+  `;
+}
+```
+
+### Navigation Controls
+
+```javascript
+let currentIdx = 0;
+
+function move(s) { 
+  currentIdx = (currentIdx + s + lessons.length) % lessons.length; 
+  render(); 
+}
+```
+
+<Info>
+  The modulo arithmetic `(currentIdx + s + lessons.length) % lessons.length` ensures circular navigation, allowing users to loop from the last lesson back to the first.
+</Info>
+
+## Quiz Integration
+
+### Dynamic Quiz Selector
+
+Bullet-style navigation for selecting quizzes:
+
+```javascript
+document.getElementById('quiz-bullets').innerHTML = lessons.map((item, i) => `
+  <div class="quiz-bullet ${i === quizIdx ? 'active' : ''}" onclick="setQuiz(${i})">
+    Lição ${item.id}
+  </div>
+`).join('');
+```
+
+### Embedded Google Forms
+
+```javascript
+const q = lessons[quizIdx];
+const qContainer = document.getElementById('quiz-container');
+
+if (q.form) {
+  qContainer.innerHTML = `<iframe src="${q.form}">Carregando…</iframe>`;
+} else {
+  qContainer.innerHTML = `
+    <div style="text-align:center; padding:40px; border:2px dashed #ccc; 
+                border-radius:15px; background:white;">
+      <h3>📖 Lição ${q.id}</h3>
+      <p>Questionário liberado em breve!</p>
+    </div>
+  `;
+}
+```
+
+## Component Styling
+
+### Status Badges
+
+```css
+.status-badge { 
+  display: inline-block; 
+  padding: 5px 12px; 
+  border-radius: 20px; 
+  font-size: 0.75rem; 
+  font-weight: bold; 
+  margin-bottom: 10px; 
+  text-transform: uppercase; 
+}
+
+.status-done { 
+  background: #c6f6d5; 
+  color: #22543d; 
+}
+
+.status-soon { 
+  background: #bee3f8; 
+  color: #2a4365; 
+}
+```
+
+### Information Boxes
+
+<Tabs>
+  <Tab title="Info Box">
+    ```css
+    .info-box { 
+      background: #f8fafc; 
+      padding: 15px; 
+      border-radius: 10px; 
+      border-left: 4px solid var(--s); 
+      margin-bottom: 15px; 
+    }
+    ```
+  </Tab>
+  
+  <Tab title="Prayer Box">
+    ```css
+    .prayer-box { 
+      background: #ebf8ff; 
+      padding: 12px; 
+      border-radius: 10px; 
+      border-left: 4px solid #4299e1; 
+      margin-bottom: 20px; 
+      font-style: italic; 
+      color: #2c5282; 
+    }
+    ```
+  </Tab>
+  
+  <Tab title="Podcast CTA">
+    ```css
+    .podcast-call { 
+      background: #fffaf0; 
+      border: 1px dashed var(--a); 
+      padding: 15px; 
+      border-radius: 10px; 
+      margin-top: 15px; 
+    }
+
+    .btn-podcast { 
+      display: inline-block; 
+      background: #e53e3e; 
+      color: white; 
+      padding: 12px 20px; 
+      border-radius: 8px; 
+      text-decoration: none; 
+      font-weight: bold; 
+      margin-top: 10px; 
+      transition: 0.3s; 
+      width: 100%; 
+      box-sizing: border-box; 
+      text-align: center;
+    }
+    ```
+  </Tab>
+</Tabs>
+
+## Ranking System
+
+The ranking section is prepared for future implementation:
+
+```css
+.ranking-art { 
+  background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%); 
+  color: white; 
+  padding: 60px 30px; 
+  border-radius: 20px; 
+  text-align: center; 
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2); 
+}
+```
+
+```html
+<div class="ranking-art">
+  <span style="font-size:4rem; display:block; margin-bottom:20px;">🏆</span>
+  <h2>Em breve!</h2>
+  <p>Participem dos questionários e em breve divulgaremos aqui os resultados.</p>
+  <p style="margin-top: 20px; font-weight: bold; color: var(--a);">Deus abençoe!</p>
+</div>
+```
+
+## Responsive Design
+
+The carousel navigation arrows adapt to mobile screens:
+
+```css
+.nav-arrow { 
+  position: absolute; 
+  top: 140px; 
+  transform: translateY(-50%); 
+  background: white; 
+  border: none; 
+  width: 40px; 
+  height: 40px; 
+  border-radius: 50%; 
+  cursor: pointer; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
+  font-size: 18px; 
+  z-index: 10; 
+}
+
+#prevBtn { left: 10px; }
+#nextBtn { right: 10px; }
+```
+
+## Technical Highlights
+
+<CardGroup cols={2}>
+  <Card title="State Management" icon="diagram-project">
+    Uses `currentIdx` and `quizIdx` variables to track carousel and quiz states
+  </Card>
+  <Card title="Template Strings" icon="code">
+    Leverages ES6 template literals for dynamic HTML generation
+  </Card>
+  <Card title="Array Methods" icon="list">
+    Uses `map()`, `forEach()`, and `join()` for efficient DOM updates
+  </Card>
+  <Card title="CSS Variables" icon="palette">
+    Custom properties enable easy theming and consistent colors
+  </Card>
+</CardGroup>
+
+## Footer with Biblical Message
+
+```html
+<footer class="gamified-footer">
+  <p><strong>"Lâmpada para os meus pés é a tua palavra, e luz para o meu caminho." – Salmo 119:105 📖✨</strong></p>
+  <p style="font-size: 0.85rem; opacity: 0.8; max-width: 600px; margin: 10px auto;">
+    Use a tecnologia em favor do reino, seu WhatsApp é para a glória de Deus e sua Rede Social é para a glória de Deus. 
+    Leia a Bíblia diariamente.
+  </p>
+</footer>
+```
+
+<Note>
+  The project successfully combines modern web development techniques with spiritual content delivery, demonstrating how technology can serve community education needs.
+</Note>

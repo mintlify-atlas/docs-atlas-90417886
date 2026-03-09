@@ -1,0 +1,712 @@
+---
+title: 'Project Workflow'
+description: 'Understanding the project lifecycle from idea to deployment'
+icon: 'diagram-project'
+---
+
+## Overview
+
+ProjetosVoluntariosTech follows a structured workflow to ensure quality, consistency, and effective collaboration. This guide walks you through the complete project lifecycle.
+
+<Note>
+  Whether you're proposing a new project or contributing to an existing one, understanding this workflow will help you navigate the contribution process smoothly.
+</Note>
+
+## Project Lifecycle
+
+<Steps>
+  <Step title="Ideation & Proposal">
+    Every project starts with an idea or a request from a community organization.
+    
+    ### How Projects Are Initiated
+    
+    <Tabs>
+      <Tab title="Community Request">
+        Organizations in need (churches, non-profits, small businesses) submit requests through:
+        
+        - GitHub Issues with `new-project` label
+        - Direct contact with project maintainers
+        - Community recommendations
+        
+        **Required Information:**
+        - Organization name and mission
+        - Project purpose and goals
+        - Target audience
+        - Key features needed
+        - Timeline expectations
+      </Tab>
+      
+      <Tab title="Volunteer Proposal">
+        Contributors can propose projects they'd like to build:
+        
+        ```bash
+        # Create a new issue on GitHub
+        Title: [New Project] Church Website for São Paulo Community
+        Labels: new-project, proposal
+        
+        Template:
+        ## Organization
+        Name: [Organization Name]
+        Type: [Church/Non-profit/Small Business]
+        
+        ## Project Description
+        [Brief description of what will be built]
+        
+        ## Key Features
+        - [ ] Feature 1
+        - [ ] Feature 2
+        
+        ## Technologies
+        HTML, CSS, JavaScript (or framework if needed)
+        
+        ## Timeline
+        Estimated completion: [Date]
+        ```
+      </Tab>
+    </Tabs>
+    
+    ### Proposal Review
+    
+    Maintainers review proposals based on:
+    - Community impact
+    - Scope and feasibility
+    - Available volunteer capacity
+    - Alignment with project mission
+  </Step>
+
+  <Step title="Planning & Design">
+    Once approved, the project enters the planning phase.
+    
+    ### Create Project Structure
+    
+    ```bash
+    # Clone the repository
+    git clone https://github.com/Yudikom/ProjetosVoluntariosTech.git
+    cd ProjetosVoluntariosTech
+    
+    # Create new project branch
+    git checkout -b project/organization-name
+    
+    # Create project directory
+    mkdir -p source/projeto-organization-name
+    cd source/projeto-organization-name
+    
+    # Initialize project files
+    touch index.html
+    touch README.md
+    ```
+    
+    ### Define Requirements
+    
+    Create a project README with:
+    
+    ```markdown
+    # Project Name - Organization Name
+    
+    ## Overview
+    Brief description of the project and its purpose.
+    
+    ## Features
+    - [ ] Feature 1: Description
+    - [ ] Feature 2: Description
+    - [ ] Feature 3: Description
+    
+    ## Design Requirements
+    - Color scheme: [Colors]
+    - Typography: [Fonts]
+    - Layout: [Description]
+    
+    ## Content Required
+    - [ ] Logo and branding assets
+    - [ ] Text content
+    - [ ] Images (with licenses)
+    
+    ## Timeline
+    - Start: [Date]
+    - Review: [Date]
+    - Completion: [Date]
+    ```
+    
+    ### Design Mockups (Optional)
+    
+    <Tip>
+      For larger projects, creating mockups in Figma or similar tools helps align expectations before coding begins.
+    </Tip>
+  </Step>
+
+  <Step title="Development">
+    Active development phase where code is written and features are implemented.
+    
+    ### Set Up Your Environment
+    
+    ```bash
+    # Open project directory
+    cd source/projeto-organization-name
+    
+    # Start with basic HTML structure
+    vim index.html
+    ```
+    
+    ### Follow Development Best Practices
+    
+    <Accordion title="Code Structure">
+      Start with semantic HTML:
+      
+      ```html
+      <!DOCTYPE html>
+      <html lang="pt-br">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Organization Name - Description</title>
+          <style>
+              /* CSS here or link external file */
+          </style>
+      </head>
+      <body>
+          <header>
+              <!-- Navigation -->
+          </header>
+          
+          <main>
+              <!-- Main content -->
+          </main>
+          
+          <footer>
+              <!-- Footer content -->
+          </footer>
+          
+          <script>
+              // JavaScript here or link external file
+          </script>
+      </body>
+      </html>
+      ```
+    </Accordion>
+    
+    <Accordion title="Regular Commits">
+      Make small, frequent commits with clear messages:
+      
+      ```bash
+      # Good commit messages
+      git commit -m "Add header navigation structure"
+      git commit -m "Implement responsive hero section"
+      git commit -m "Add contact form with validation"
+      git commit -m "Fix mobile menu toggle on iOS"
+      
+      # Bad commit messages (avoid these)
+      git commit -m "update"
+      git commit -m "fix"
+      git commit -m "changes"
+      ```
+    </Accordion>
+    
+    <Accordion title="Testing During Development">
+      Test continuously as you build:
+      
+      ```bash
+      # Open in browser for testing
+      open index.html  # macOS
+      xdg-open index.html  # Linux
+      start index.html  # Windows
+      
+      # Test on different screen sizes using browser dev tools
+      # Chrome: Cmd+Opt+I (Mac) or Ctrl+Shift+I (Windows/Linux)
+      # Then click the device toolbar icon
+      ```
+      
+      <Warning>
+        Test on actual mobile devices when possible, not just browser emulation.
+      </Warning>
+    </Accordion>
+    
+    ### Development Milestones
+    
+    <CardGroup cols={2}>
+      <Card title="25% Complete" icon="1">
+        - Basic HTML structure
+        - Initial styling
+        - Core layout defined
+      </Card>
+      <Card title="50% Complete" icon="2">
+        - All sections implemented
+        - Responsive design working
+        - Basic interactivity added
+      </Card>
+      <Card title="75% Complete" icon="3">
+        - All features functional
+        - Content populated
+        - Cross-browser tested
+      </Card>
+      <Card title="100% Complete" icon="check">
+        - All requirements met
+        - Fully tested and optimized
+        - Documentation complete
+      </Card>
+    </CardGroup>
+  </Step>
+
+  <Step title="Review & Feedback">
+    Once development is complete, the project enters the review phase.
+    
+    ### Submit for Review
+    
+    ```bash
+    # Ensure all changes are committed
+    git add .
+    git commit -m "Complete initial implementation of [project name]"
+    
+    # Push to your fork
+    git push origin project/organization-name
+    
+    # Create pull request on GitHub
+    # Use the PR template and include:
+    # - Project description
+    # - Screenshots
+    # - Testing checklist
+    # - Link to live preview (if available)
+    ```
+    
+    ### Review Process
+    
+    <Tabs>
+      <Tab title="Code Review">
+        Maintainers and other contributors review:
+        
+        **Technical Review:**
+        - Code quality and readability
+        - Adherence to [coding guidelines](/contributing/code-guidelines)
+        - Performance optimization
+        - Accessibility compliance
+        - Security considerations
+        
+        **Functional Review:**
+        - All features working as expected
+        - Responsive on all devices
+        - Cross-browser compatibility
+        - No console errors
+      </Tab>
+      
+      <Tab title="Client Review">
+        The requesting organization reviews:
+        
+        - Visual design and branding
+        - Content accuracy
+        - Feature completeness
+        - User experience
+        
+        <Note>
+          Client feedback may require additional iterations. This is normal and expected!
+        </Note>
+      </Tab>
+    </Tabs>
+    
+    ### Addressing Feedback
+    
+    ```bash
+    # Make requested changes
+    vim index.html
+    
+    # Commit changes referencing the review
+    git commit -m "Fix navigation spacing per review feedback"
+    git commit -m "Update color scheme to match brand guidelines"
+    
+    # Push updates
+    git push origin project/organization-name
+    
+    # Comment on the PR to notify reviewers
+    ```
+    
+    <Tip>
+      Respond to all review comments, even if just to acknowledge them. Clear communication is key!
+    </Tip>
+  </Step>
+
+  <Step title="Testing & Quality Assurance">
+    Comprehensive testing before final approval.
+    
+    ### Testing Checklist
+    
+    ```markdown
+    ## Browser Testing
+    - [ ] Chrome (Desktop)
+    - [ ] Firefox (Desktop)
+    - [ ] Safari (Desktop)
+    - [ ] Edge (Desktop)
+    - [ ] Mobile Safari (iOS)
+    - [ ] Chrome Mobile (Android)
+    
+    ## Device Testing
+    - [ ] iPhone (375px)
+    - [ ] iPad (768px)
+    - [ ] Desktop (1920px)
+    - [ ] Large Desktop (2560px)
+    
+    ## Functionality Testing
+    - [ ] All links work correctly
+    - [ ] Forms submit properly
+    - [ ] Navigation functions
+    - [ ] Animations smooth
+    - [ ] Images load correctly
+    - [ ] Videos/embeds work
+    
+    ## Accessibility Testing
+    - [ ] Keyboard navigation
+    - [ ] Screen reader compatible
+    - [ ] Color contrast WCAG AA
+    - [ ] Focus indicators visible
+    - [ ] Alt text on images
+    - [ ] ARIA labels present
+    
+    ## Performance Testing
+    - [ ] PageSpeed score > 90
+    - [ ] Images optimized
+    - [ ] No console errors
+    - [ ] Fast load time (<3s)
+    
+    ## Validation
+    - [ ] HTML validates (W3C)
+    - [ ] CSS validates
+    - [ ] No JavaScript errors
+    ```
+    
+    ### Automated Testing Tools
+    
+    <CardGroup cols={2}>
+      <Card title="Lighthouse" icon="lighthouse">
+        Run Chrome DevTools Lighthouse audit for performance, accessibility, and SEO
+      </Card>
+      <Card title="W3C Validator" icon="check-circle">
+        Validate HTML at [validator.w3.org](https://validator.w3.org/)
+      </Card>
+      <Card title="CSS Validator" icon="code">
+        Validate CSS at [jigsaw.w3.org/css-validator](https://jigsaw.w3.org/css-validator/)
+      </Card>
+      <Card title="WAVE" icon="universal-access">
+        Check accessibility with [WAVE browser extension](https://wave.webaim.org/extension/)
+      </Card>
+    </CardGroup>
+  </Step>
+
+  <Step title="Deployment">
+    Final deployment and handoff to the organization.
+    
+    ### Pre-Deployment
+    
+    ```bash
+    # Final commit with all changes
+    git add .
+    git commit -m "Final optimizations and polish for [project name]"
+    
+    # Merge into main branch (maintainers)
+    git checkout main
+    git merge project/organization-name
+    git push origin main
+    ```
+    
+    ### Deployment Options
+    
+    <Tabs>
+      <Tab title="GitHub Pages">
+        Simple static hosting for HTML/CSS/JS projects:
+        
+        ```bash
+        # Enable GitHub Pages in repository settings
+        # Settings → Pages → Source: main branch
+        
+        # Access at:
+        # https://[username].github.io/ProjetosVoluntariosTech/source/projeto-name/
+        ```
+      </Tab>
+      
+      <Tab title="Netlify">
+        Free hosting with custom domains:
+        
+        1. Connect GitHub repository to Netlify
+        2. Set build settings (usually none for static sites)
+        3. Deploy!
+        4. Add custom domain if provided by organization
+        
+        ```bash
+        # Netlify CLI (optional)
+        npm install -g netlify-cli
+        netlify deploy --prod
+        ```
+      </Tab>
+      
+      <Tab title="Vercel">
+        Fast deployment with preview URLs:
+        
+        ```bash
+        # Install Vercel CLI
+        npm i -g vercel
+        
+        # Deploy
+        vercel --prod
+        ```
+      </Tab>
+      
+      <Tab title="Custom Hosting">
+        If the organization has their own hosting:
+        
+        1. Export project files as ZIP
+        2. Provide deployment instructions
+        3. Assist with FTP/cPanel upload if needed
+      </Tab>
+    </Tabs>
+    
+    ### Handoff Documentation
+    
+    Create a handoff guide for the organization:
+    
+    ```markdown
+    # [Project Name] - Handoff Documentation
+    
+    ## Deployment
+    - **Live URL:** https://...
+    - **Repository:** https://github.com/...
+    
+    ## How to Update Content
+    
+    ### Text Changes
+    1. Open `index.html` in a text editor
+    2. Find the section you want to edit
+    3. Update the text between HTML tags
+    4. Save and re-upload
+    
+    ### Image Changes
+    1. Upload new image to image hosting (imgur, postimg, etc.)
+    2. Copy image URL
+    3. Update `src` attribute in HTML
+    4. Save and re-upload
+    
+    ## Support
+    For questions or updates:
+    - Email: [maintainer email]
+    - GitHub Issues: [link]
+    
+    ## Maintenance
+    - Regular backups recommended
+    - Update contact information as needed
+    - Test on new browsers periodically
+    ```
+  </Step>
+
+  <Step title="Maintenance & Updates">
+    Ongoing support and improvements.
+    
+    ### Post-Deployment Support
+    
+    <Accordion title="Bug Fixes">
+      Report and fix issues that arise after deployment:
+      
+      ```bash
+      # Create bug fix branch
+      git checkout -b fix/project-name-bug-description
+      
+      # Make fixes
+      vim index.html
+      
+      # Commit and push
+      git commit -m "Fix mobile menu issue on iOS Safari"
+      git push origin fix/project-name-bug-description
+      
+      # Create PR for review
+      ```
+    </Accordion>
+    
+    <Accordion title="Content Updates">
+      Help organizations update content:
+      
+      ```bash
+      # Create update branch
+      git checkout -b update/project-name-content
+      
+      # Update content
+      vim index.html
+      
+      # Commit changes
+      git commit -m "Update event dates and contact information"
+      
+      # Deploy updates
+      ```
+    </Accordion>
+    
+    <Accordion title="Feature Additions">
+      Add new features as organizations grow:
+      
+      - Follow the same workflow as new projects
+      - Create feature branch
+      - Implement, test, and deploy
+      - Document new features
+    </Accordion>
+  </Step>
+</Steps>
+
+## Request Types
+
+<CardGroup cols={2}>
+  <Card title="New Project" icon="plus-circle">
+    Complete website or application from scratch
+    
+    **Timeline:** 2-8 weeks
+    **Label:** `new-project`
+  </Card>
+  
+  <Card title="Feature Request" icon="sparkles">
+    Add new functionality to existing project
+    
+    **Timeline:** 1-2 weeks
+    **Label:** `enhancement`
+  </Card>
+  
+  <Card title="Bug Fix" icon="bug">
+    Fix issues or errors in existing projects
+    
+    **Timeline:** 1-5 days
+    **Label:** `bug`
+  </Card>
+  
+  <Card title="Content Update" icon="edit">
+    Update text, images, or information
+    
+    **Timeline:** 1-2 days
+    **Label:** `content`
+  </Card>
+</CardGroup>
+
+## Issue Labels & Tracking
+
+We use GitHub labels to organize and prioritize work:
+
+| Label | Purpose | Priority |
+|-------|---------|----------|
+| `new-project` | New project proposals | Varies |
+| `good first issue` | Perfect for beginners | Good for newcomers |
+| `help wanted` | Need contributors | Medium |
+| `enhancement` | New features | Medium |
+| `bug` | Something broken | High |
+| `documentation` | Docs improvements | Low-Medium |
+| `design` | UI/UX improvements | Medium |
+| `in progress` | Currently being worked on | - |
+| `review needed` | Ready for review | High |
+
+## Communication During Projects
+
+<Tabs>
+  <Tab title="GitHub Issues">
+    **Use for:**
+    - Project proposals
+    - Bug reports
+    - Feature requests
+    - Public discussions
+    
+    **Format:**
+    - Clear, descriptive title
+    - Detailed description
+    - Steps to reproduce (for bugs)
+    - Screenshots when relevant
+  </Tab>
+  
+  <Tab title="Pull Request Comments">
+    **Use for:**
+    - Code review discussions
+    - Implementation questions
+    - Suggesting improvements
+    - Addressing feedback
+    
+    **Best Practices:**
+    - Be constructive and specific
+    - Explain reasoning behind suggestions
+    - Acknowledge good work
+    - Ask questions when unclear
+  </Tab>
+  
+  <Tab title="Direct Contact">
+    **Use for:**
+    - Sensitive information
+    - Organization credentials
+    - Private project details
+    - Emergency issues
+    
+    Contact maintainers via email for private matters.
+  </Tab>
+</Tabs>
+
+## Project Examples
+
+### Example 1: Escola Bíblica
+
+**Type:** Educational portal for church Bible school
+
+**Features:**
+- Lesson calendar with navigation
+- Embedded quiz forms
+- Podcast integration
+- Status tracking
+- Prayer intentions
+
+**Technologies:** HTML, CSS (custom), Vanilla JavaScript
+
+**Timeline:** 3 weeks from proposal to deployment
+
+---
+
+### Example 2: Solução Refrigeração
+
+**Type:** Business landing page for refrigeration services
+
+**Features:**
+- Hero section with CTA
+- Service listings
+- WhatsApp integration
+- Responsive design
+- Contact information
+
+**Technologies:** HTML, Tailwind CSS, Font Awesome
+
+**Timeline:** 2 weeks from proposal to deployment
+
+---
+
+## Tips for Success
+
+<Warning>
+  **Common Pitfalls to Avoid:**
+  - Starting without clear requirements
+  - Not testing on real devices
+  - Ignoring accessibility
+  - Poor commit messages
+  - Not communicating progress
+</Warning>
+
+<Tip>
+  **Keys to Success:**
+  - Communicate early and often
+  - Ask questions when unclear
+  - Test continuously during development
+  - Follow the style guide
+  - Be patient with the review process
+  - Learn from feedback
+</Tip>
+
+## Getting Help
+
+If you get stuck at any stage:
+
+1. **Check the documentation** - Most questions are answered here
+2. **Search closed issues** - Someone may have solved your problem
+3. **Ask in your PR** - Maintainers are here to help
+4. **Create a question issue** - Use the `question` label
+5. **Be patient** - Remember, everyone is volunteering their time
+
+---
+
+<CardGroup cols={2}>
+  <Card title="Start Contributing" icon="rocket" href="/contributing/how-to-contribute">
+    Ready to begin? Learn how to make your first contribution
+  </Card>
+  <Card title="Code Guidelines" icon="code" href="/contributing/code-guidelines">
+    Review our coding standards and best practices
+  </Card>
+</CardGroup>

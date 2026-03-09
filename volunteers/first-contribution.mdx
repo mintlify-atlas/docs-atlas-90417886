@@ -1,0 +1,392 @@
+---
+title: Making Your First Contribution
+description: A complete guide to making your first pull request to ProjetosVoluntariosTech
+---
+
+## Your First Contribution
+
+This guide will walk you through the entire process of making your first contribution to ProjetosVoluntariosTech. We'll cover everything from forking the repository to submitting your pull request.
+
+<Note>
+Don't worry if this seems overwhelming at first. Follow each step carefully, and you'll have made your first contribution before you know it!
+</Note>
+
+## Prerequisites
+
+Before starting, make sure you have:
+
+- A GitHub account
+- Git installed on your computer
+- A text editor (VS Code, Sublime Text, Atom, etc.)
+- Basic familiarity with HTML, CSS, and JavaScript
+
+<Tip>
+New to Git? Check out our [Skill Requirements](/volunteers/skill-requirements) page for learning resources.
+</Tip>
+
+## The Contribution Workflow
+
+<Steps>
+  <Step title="Fork the Repository">
+    Go to the ProjetosVoluntariosTech repository on GitHub and click the "Fork" button in the top-right corner. This creates a copy of the repository under your GitHub account.
+    
+    <Info>
+    Forking allows you to freely experiment with changes without affecting the original project.
+    </Info>
+  </Step>
+  
+  <Step title="Clone Your Fork">
+    Open your terminal and clone your forked repository to your local machine:
+    
+    ```bash
+    git clone https://github.com/YOUR-USERNAME/ProjetosVoluntariosTech.git
+    cd ProjetosVoluntariosTech
+    ```
+    
+    Replace `YOUR-USERNAME` with your actual GitHub username.
+  </Step>
+  
+  <Step title="Create a New Branch">
+    Always create a new branch for your changes. Never work directly on the `main` branch:
+    
+    ```bash
+    git checkout -b fix/improve-button-styling
+    ```
+    
+    <Tip>
+    Use descriptive branch names like `fix/button-color` or `feature/add-footer-links` to clearly indicate what you're working on.
+    </Tip>
+  </Step>
+  
+  <Step title="Make Your Changes">
+    Open the project in your text editor and make your changes. For example, if you're improving button styling, you might edit the CSS:
+    
+    ```css
+    .btn-podcast {
+        display: inline-block;
+        background: #e53e3e;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 10px;
+        transition: 0.3s;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    
+    /* Add hover effect */
+    .btn-podcast:hover {
+        background: #c53030;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    ```
+    
+    <Note>
+    Test your changes by opening the HTML file in a web browser to ensure everything works as expected.
+    </Note>
+  </Step>
+  
+  <Step title="Stage Your Changes">
+    After making your changes, stage them for commit:
+    
+    ```bash
+    git add .
+    ```
+    
+    Or stage specific files:
+    
+    ```bash
+    git add projeto1-Escola-Biblica/index.html
+    ```
+    
+    Check what will be committed:
+    
+    ```bash
+    git status
+    ```
+  </Step>
+  
+  <Step title="Commit Your Changes">
+    Create a commit with a clear, descriptive message:
+    
+    ```bash
+    git commit -m "Add hover effect to podcast button for better user feedback"
+    ```
+    
+    <Tip>
+    **Good commit messages** explain the "why" behind the change:
+    - ✅ "Add hover effect to podcast button for better user feedback"
+    - ✅ "Fix navigation button alignment on mobile devices"
+    - ❌ "Updated CSS"
+    - ❌ "Changes"
+    </Tip>
+  </Step>
+  
+  <Step title="Push to Your Fork">
+    Push your branch to your forked repository on GitHub:
+    
+    ```bash
+    git push origin fix/improve-button-styling
+    ```
+    
+    If this is your first push to this branch, Git will provide instructions to set the upstream branch.
+  </Step>
+  
+  <Step title="Create a Pull Request">
+    Go to your fork on GitHub. You'll see a banner suggesting you create a pull request. Click "Compare & pull request".
+    
+    In the pull request:
+    - Write a clear title describing your change
+    - In the description, explain:
+      - What you changed
+      - Why you made the change
+      - How to test it (if applicable)
+    
+    Example PR description:
+    ```markdown
+    ## Changes Made
+    Added hover effect to the podcast button to improve user experience.
+    
+    ## Why
+    The button lacked visual feedback when users hovered over it.
+    
+    ## Testing
+    Open index.html in a browser and hover over the podcast button.
+    You should see a smooth transition to a darker color.
+    ```
+  </Step>
+  
+  <Step title="Respond to Feedback">
+    A maintainer will review your pull request and may request changes. This is normal!
+    
+    To make additional changes:
+    
+    ```bash
+    # Make your changes in the same branch
+    git add .
+    git commit -m "Address review feedback: adjust hover transition timing"
+    git push origin fix/improve-button-styling
+    ```
+    
+    <Info>
+    Your new commits will automatically appear in the same pull request.
+    </Info>
+  </Step>
+  
+  <Step title="Celebrate!">
+    Once your pull request is approved and merged, congratulations! You've made your first contribution to open source.
+    
+    <Tip>
+    Your contribution, no matter how small, makes a difference. Thank you for being part of our community!
+    </Tip>
+  </Step>
+</Steps>
+
+## Common Git Commands
+
+Here's a quick reference of Git commands you'll use frequently:
+
+### Checking Status
+```bash
+# See what files have been modified
+git status
+
+# See detailed changes in files
+git diff
+```
+
+### Branching
+```bash
+# List all branches
+git branch
+
+# Create and switch to a new branch
+git checkout -b feature/my-new-feature
+
+# Switch to an existing branch
+git checkout main
+```
+
+### Syncing with Upstream
+```bash
+# Add the original repository as upstream (one-time setup)
+git remote add upstream https://github.com/Yudikom/ProjetosVoluntariosTech.git
+
+# Fetch latest changes from upstream
+git fetch upstream
+
+# Merge upstream changes into your main branch
+git checkout main
+git merge upstream/main
+```
+
+### Undoing Changes
+```bash
+# Discard changes in a specific file
+git checkout -- filename.html
+
+# Unstage a file (keep changes)
+git reset HEAD filename.html
+
+# Undo last commit (keep changes)
+git reset --soft HEAD~1
+```
+
+## Real-World Examples
+
+Here are some actual examples of beginner-friendly contributions:
+
+### Example 1: Improving Accessibility
+
+**Issue**: Images are missing alt text for screen readers
+
+**Solution**:
+```html
+<!-- Before -->
+<img src="https://i.postimg.cc/L6WHM8tF/Brasao-(1).png" class="brasao">
+
+<!-- After -->
+<img src="https://i.postimg.cc/L6WHM8tF/Brasao-(1).png" 
+     alt="Brasão da Escola Bíblica" 
+     class="brasao">
+```
+
+### Example 2: Fixing CSS Variables
+
+**Issue**: Colors are hardcoded instead of using CSS variables
+
+**Solution**:
+```css
+/* Before */
+body {
+    color: #2d3748;
+}
+
+/* After - using CSS custom properties */
+:root {
+    --text-primary: #2d3748;
+}
+
+body {
+    color: var(--text-primary);
+}
+```
+
+### Example 3: Adding Interactive Features
+
+**Issue**: Add keyboard navigation to lesson cards
+
+**Solution**:
+```javascript
+// Add keyboard event listener
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowLeft') {
+        move(-1); // Previous lesson
+    } else if (e.key === 'ArrowRight') {
+        move(1); // Next lesson
+    }
+});
+```
+
+## Troubleshooting
+
+<Accordion title="My push was rejected">
+  This usually means your fork is behind the original repository. Sync your fork:
+  
+  ```bash
+  git fetch upstream
+  git checkout main
+  git merge upstream/main
+  git push origin main
+  ```
+  
+  Then rebase your feature branch:
+  
+  ```bash
+  git checkout your-branch-name
+  git rebase main
+  git push --force-with-lease origin your-branch-name
+  ```
+</Accordion>
+
+<Accordion title="I made changes to the wrong branch">
+  If you committed to `main` instead of a feature branch:
+  
+  ```bash
+  # Create a new branch with your changes
+  git checkout -b correct-branch-name
+  
+  # Go back to main and reset it
+  git checkout main
+  git reset --hard upstream/main
+  ```
+</Accordion>
+
+<Accordion title="I want to undo my last commit">
+  To undo the last commit but keep your changes:
+  
+  ```bash
+  git reset --soft HEAD~1
+  ```
+  
+  To completely discard the last commit and all changes:
+  
+  ```bash
+  git reset --hard HEAD~1
+  ```
+  
+  <Note>
+  Be careful with `--hard` as it permanently deletes your changes!
+  </Note>
+</Accordion>
+
+<Accordion title="How do I update my PR with new changes?">
+  Just make new commits to the same branch and push:
+  
+  ```bash
+  # Make your changes
+  git add .
+  git commit -m "Address review feedback"
+  git push origin your-branch-name
+  ```
+  
+  The pull request will automatically update with your new commits.
+</Accordion>
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Test Your Changes" icon="flask">
+    Always test in a browser before submitting. Check different screen sizes if you're modifying layout.
+  </Card>
+  <Card title="Keep It Small" icon="minimize">
+    Make small, focused changes. It's better to submit multiple small PRs than one large one.
+  </Card>
+  <Card title="Write Clear Commits" icon="message">
+    Commit messages should explain what and why. Future you will thank present you!
+  </Card>
+  <Card title="Be Patient" icon="clock">
+    Maintainers are volunteers. Reviews may take a few days. Don't take it personally!
+  </Card>
+</CardGroup>
+
+## Next Steps
+
+Now that you know how to contribute:
+
+<CardGroup cols={2}>
+  <Card title="Check Skill Requirements" icon="graduation-cap" href="/volunteers/skill-requirements">
+    Learn what skills you need and find resources to improve
+  </Card>
+  <Card title="Find Issues" icon="search" href="https://github.com/Yudikom/ProjetosVoluntariosTech/issues">
+    Browse open issues and find your next contribution
+  </Card>
+</CardGroup>
+
+<Tip>
+Remember: Every expert was once a beginner. Your first contribution is the hardest - after that, it gets easier with each one!
+</Tip>

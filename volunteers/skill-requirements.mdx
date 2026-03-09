@@ -1,0 +1,573 @@
+---
+title: Skill Requirements
+description: Required and optional skills for contributing to ProjetosVoluntariosTech, with learning resources
+---
+
+## Skills Overview
+
+ProjetosVoluntariosTech projects are designed to be accessible to beginners while offering opportunities to learn and grow. This guide outlines what you need to know and where to learn it.
+
+<Info>
+You don't need to be an expert in everything! Start with what you know and learn as you contribute.
+</Info>
+
+## Required Skills
+
+These are the core skills you'll need for most contributions:
+
+<Accordion title="HTML - Structure and Semantics" icon="code">
+  ### What You Need to Know
+  
+  - Basic HTML document structure
+  - Common HTML elements (div, span, img, a, button, etc.)
+  - Semantic HTML (header, nav, section, footer)
+  - Forms and input elements
+  - Attributes (class, id, src, href, alt)
+  
+  ### Real Example from Our Projects
+  
+  ```html
+  <!DOCTYPE html>
+  <html lang="pt-br">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Escola Bíblica - Portal Oficial</title>
+  </head>
+  <body>
+      <header>
+          <img src="brasao.png" alt="Brasão" class="brasao">
+          <h1>ESCOLA BÍBLICA</h1>
+          <div class="logo-sub">CRESCIMENTO & ENGAJAMENTO</div>
+      </header>
+      
+      <nav>
+          <button class="nav-btn active" onclick="tab('calendario')">
+              📅 CALENDÁRIO
+          </button>
+          <button class="nav-btn" onclick="tab('quiz')">
+              📖 DESAFIO DE APRENDIZAGEM
+          </button>
+      </nav>
+  </body>
+  </html>
+  ```
+  
+  ### Learning Resources
+  
+  - [MDN HTML Basics](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML) - Comprehensive guide
+  - [freeCodeCamp HTML Course](https://www.freecodecamp.org/learn/responsive-web-design/#basic-html-and-html5) - Interactive lessons
+  - [HTML Dog Tutorials](https://htmldog.com/guides/html/beginner/) - Beginner-friendly tutorials
+  
+  <Tip>
+  Focus on semantic HTML first. It makes your code more accessible and easier to understand.
+  </Tip>
+</Accordion>
+
+<Accordion title="CSS - Styling and Layout" icon="paintbrush">
+  ### What You Need to Know
+  
+  - CSS selectors (class, id, element)
+  - Common CSS properties (color, background, padding, margin)
+  - Flexbox for layout
+  - CSS custom properties (variables)
+  - Responsive design basics
+  - Transitions and basic animations
+  
+  ### Real Example from Our Projects
+  
+  ```css
+  /* CSS Custom Properties */
+  :root {
+      --p: #1a365d;      /* Primary color */
+      --s: #2b6cb0;      /* Secondary color */
+      --a: #ed8936;      /* Accent color */
+      --bg: #f7fafc;     /* Background color */
+  }
+  
+  /* Using variables and modern CSS */
+  body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: #2d3748;
+  }
+  
+  /* Flexbox for navigation */
+  nav {
+      display: flex;
+      justify-content: center;
+      background: white;
+      position: sticky;
+      top: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      z-index: 100;
+  }
+  
+  /* Interactive button with transitions */
+  .nav-btn {
+      border: none;
+      background: none;
+      padding: 15px 10px;
+      font-weight: bold;
+      color: #4a5568;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: 0.3s;
+  }
+  
+  .nav-btn:hover {
+      color: var(--s);
+  }
+  
+  .nav-btn.active {
+      color: var(--s);
+      border-bottom: 3px solid var(--s);
+  }
+  
+  /* Card styling */
+  .card-container {
+      position: relative;
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+  ```
+  
+  ### Key Patterns in Our Projects
+  
+  - **CSS Variables**: We use custom properties for consistent theming
+  - **Flexbox**: Primary layout method for navigation and card layouts
+  - **Transitions**: Smooth animations for better user experience
+  - **Box Model**: Understanding padding, margin, and border
+  
+  ### Learning Resources
+  
+  - [CSS Tricks Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) - Complete flexbox reference
+  - [MDN CSS Basics](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps) - Comprehensive CSS guide
+  - [freeCodeCamp CSS Course](https://www.freecodecamp.org/learn/responsive-web-design/#basic-css) - Interactive lessons
+  - [Flexbox Froggy](https://flexboxfroggy.com/) - Fun game to learn flexbox
+  
+  <Tip>
+  Master CSS variables and flexbox first - they're used extensively in our projects.
+  </Tip>
+</Accordion>
+
+<Accordion title="JavaScript - Interactivity and Logic" icon="brackets-curly">
+  ### What You Need to Know
+  
+  - Variables and data types
+  - Functions and arrow functions
+  - Arrays and array methods (map, filter, forEach)
+  - DOM manipulation (querySelector, getElementById)
+  - Event listeners
+  - Template literals
+  - Basic ES6+ features
+  
+  ### Real Example from Our Projects
+  
+  ```javascript
+  // Data array - lessons with their properties
+  const lessons = [
+      {
+          id: 1,
+          t: "LIÇÃO 1 – Os discípulos de Cristo são novas criaturas",
+          d: "02/01/2026",
+          prof: "Pr. Vinicius Victor",
+          img: "https://i.postimg.cc/bvVwgLsK/1.jpg",
+          status: "Aula Ministrada",
+          desc: "Estudo sobre Arrependimento e nova vida em Cristo."
+      },
+      {
+          id: 2,
+          t: "LIÇÃO 2 – Princípios bíblicos para a vida dos discípulos",
+          d: "09/01/2026",
+          prof: "Pr. Armindo",
+          img: "https://i.postimg.cc/yNp8jnk2/2.jpg",
+          status: "Aula Ministrada",
+          desc: "Compreensão dos padrões Bíblicos da vida."
+      }
+  ];
+  
+  // State management
+  let currentIdx = 0;
+  
+  // DOM manipulation and template literals
+  function render() {
+      const l = lessons[currentIdx];
+      const statusClass = l.status === "Aula Ministrada" 
+          ? "status-done" 
+          : "status-soon";
+      
+      document.getElementById('card-content').innerHTML = `
+          <img src="${l.img}" class="lesson-img">
+          <div class="lesson-content">
+              <span class="status-badge ${statusClass}">${l.status}</span>
+              <h2 class="lesson-title">${l.t}</h2>
+              <div class="info-box">
+                  <strong>📖 Descrição:</strong><br>
+                  <span>${l.desc}</span>
+              </div>
+          </div>
+      `;
+  }
+  
+  // Array methods and mapping
+  function renderQuizButtons() {
+      const container = document.getElementById('quiz-bullets');
+      container.innerHTML = lessons.map((item, i) => `
+          <div class="quiz-bullet ${i === quizIdx ? 'active' : ''}" 
+               onclick="setQuiz(${i})">
+              Lição ${item.id}
+          </div>
+      `).join('');
+  }
+  
+  // Navigation function
+  function move(step) {
+      currentIdx = (currentIdx + step + lessons.length) % lessons.length;
+      render();
+  }
+  
+  // Tab switching with DOM manipulation
+  function tab(id) {
+      document.querySelectorAll('.section').forEach(s => {
+          s.classList.remove('active');
+      });
+      document.querySelectorAll('.nav-btn').forEach(b => {
+          b.classList.remove('active');
+      });
+      
+      document.getElementById(id).classList.add('active');
+      document.getElementById('btn-' + id).classList.add('active');
+      
+      window.scrollTo(0, 0);
+  }
+  
+  // Initialize on page load
+  render();
+  ```
+  
+  ### Key Patterns in Our Projects
+  
+  - **Data-driven rendering**: Using arrays and objects to store data
+  - **Template literals**: Building HTML strings dynamically
+  - **Event handling**: Click events and user interactions
+  - **DOM manipulation**: Updating content without page reload
+  - **Array methods**: map, forEach for transforming data
+  
+  ### Learning Resources
+  
+  - [JavaScript.info](https://javascript.info/) - Modern JavaScript tutorial
+  - [MDN JavaScript Guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide) - Comprehensive reference
+  - [freeCodeCamp JavaScript Course](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/) - Interactive lessons
+  - [Eloquent JavaScript](https://eloquentjavascript.net/) - Free online book
+  
+  <Tip>
+  Focus on DOM manipulation and array methods - these are the most common patterns in our projects.
+  </Tip>
+</Accordion>
+
+## Optional Skills
+
+These skills will help you make more advanced contributions:
+
+<Accordion title="Git and Version Control" icon="code-branch">
+  ### Why It's Useful
+  
+  Git is essential for collaborating on open source projects. It allows you to track changes, work on features independently, and collaborate with others.
+  
+  ### What You Need to Know
+  
+  - Cloning and forking repositories
+  - Creating and switching branches
+  - Staging and committing changes
+  - Pushing and pulling changes
+  - Creating pull requests
+  - Resolving merge conflicts
+  
+  ### Common Git Workflow
+  
+  ```bash
+  # Clone repository
+  git clone https://github.com/YOUR-USERNAME/ProjetosVoluntariosTech.git
+  cd ProjetosVoluntariosTech
+  
+  # Create feature branch
+  git checkout -b feature/add-new-lesson
+  
+  # Make changes, then stage them
+  git add .
+  
+  # Commit with descriptive message
+  git commit -m "Add lesson 14 content and styling"
+  
+  # Push to your fork
+  git push origin feature/add-new-lesson
+  
+  # Then create PR on GitHub
+  ```
+  
+  ### Learning Resources
+  
+  - [Git Handbook](https://guides.github.com/introduction/git-handbook/) - GitHub's official guide
+  - [Learn Git Branching](https://learngitbranching.js.org/) - Interactive visual tutorial
+  - [Pro Git Book](https://git-scm.com/book/en/v2) - Free comprehensive guide
+  - [First Contributions](https://github.com/firstcontributions/first-contributions) - Practice repo for first PRs
+  
+  <Note>
+  See our [First Contribution Guide](/volunteers/first-contribution) for step-by-step Git instructions.
+  </Note>
+</Accordion>
+
+<Accordion title="Responsive Design" icon="mobile">
+  ### Why It's Useful
+  
+  Many community members access our projects on mobile devices. Responsive design ensures great experiences across all screen sizes.
+  
+  ### What You Need to Know
+  
+  - Mobile-first approach
+  - Media queries
+  - Flexible layouts with flexbox
+  - Responsive images
+  - Touch-friendly interfaces
+  - Viewport meta tag
+  
+  ### Real Example from Our Projects
+  
+  ```html
+  <!-- Viewport meta tag for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  ```
+  
+  ```css
+  /* Mobile-first approach */
+  .nav-btn {
+      padding: 15px 10px;
+      font-size: 0.8rem;
+  }
+  
+  /* Flexible container */
+  .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 15px;  /* Padding for mobile */
+  }
+  
+  /* Responsive images */
+  .lesson-img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+  }
+  
+  /* Media query for larger screens */
+  @media (min-width: 768px) {
+      .nav-btn {
+          padding: 15px 20px;
+          font-size: 1rem;
+      }
+      
+      .quiz-selector {
+          justify-content: flex-start;
+      }
+  }
+  ```
+  
+  ### Learning Resources
+  
+  - [MDN Responsive Design](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design) - Complete guide
+  - [Responsive Web Design Basics](https://web.dev/responsive-web-design-basics/) - Google's guide
+  - [This Is Responsive](https://bradfrost.github.io/this-is-responsive/) - Patterns and resources
+  
+  <Tip>
+  Always test your changes on mobile devices or use browser DevTools mobile emulation.
+  </Tip>
+</Accordion>
+
+<Accordion title="Web Accessibility (a11y)" icon="universal-access">
+  ### Why It's Useful
+  
+  Accessible websites work for everyone, including people with disabilities. This is crucial for community projects.
+  
+  ### What You Need to Know
+  
+  - Semantic HTML
+  - Alt text for images
+  - Keyboard navigation
+  - Color contrast
+  - ARIA labels when needed
+  - Focus management
+  
+  ### Practical Examples
+  
+  ```html
+  <!-- Good: Alt text for images -->
+  <img src="brasao.png" 
+       alt="Brasão da Escola Bíblica" 
+       class="brasao">
+  
+  <!-- Good: Semantic navigation -->
+  <nav aria-label="Main navigation">
+      <button aria-label="View calendar" 
+              aria-pressed="true">
+          📅 CALENDÁRIO
+      </button>
+  </nav>
+  
+  <!-- Good: Focus visible for keyboard users -->
+  <style>
+  .nav-btn:focus {
+      outline: 3px solid var(--a);
+      outline-offset: 2px;
+  }
+  </style>
+  ```
+  
+  ### Learning Resources
+  
+  - [Web Accessibility by Google](https://web.dev/accessibility/) - Practical guide
+  - [MDN Accessibility](https://developer.mozilla.org/en-US/docs/Web/Accessibility) - Comprehensive tutorials
+  - [The A11Y Project](https://www.a11yproject.com/) - Community-driven resources
+  - [WAVE Tool](https://wave.webaim.org/) - Test your pages for accessibility
+  
+  <Info>
+  Accessibility improvements are great beginner contributions and have huge impact!
+  </Info>
+</Accordion>
+
+<Accordion title="Browser DevTools" icon="wrench">
+  ### Why It's Useful
+  
+  Browser DevTools help you debug issues, test changes, and understand how websites work.
+  
+  ### What You Need to Know
+  
+  - Inspecting HTML elements
+  - Modifying CSS in real-time
+  - Debugging JavaScript with console.log
+  - Using the Console tab
+  - Mobile device emulation
+  - Network tab basics
+  
+  ### Useful DevTools Techniques
+  
+  ```javascript
+  // Console logging for debugging
+  function render() {
+      console.log('Current lesson index:', currentIdx);
+      console.log('Lesson data:', lessons[currentIdx]);
+      
+      const l = lessons[currentIdx];
+      // ... rest of function
+  }
+  
+  // Inspect objects in detail
+  console.table(lessons);
+  
+  // Check if element exists
+  const element = document.getElementById('card-content');
+  console.log('Element found:', element !== null);
+  ```
+  
+  ### Learning Resources
+  
+  - [Chrome DevTools Docs](https://developer.chrome.com/docs/devtools/) - Official guide
+  - [Firefox DevTools](https://firefox-source-docs.mozilla.org/devtools-user/) - Firefox version
+  - [DevTools Tips](https://devtoolstips.org/) - Practical tips and tricks
+  
+  <Tip>
+  Press F12 to open DevTools in most browsers. Right-click any element and choose "Inspect" to see its HTML and CSS.
+  </Tip>
+</Accordion>
+
+## Skill Progression Path
+
+Here's a suggested learning path for new volunteers:
+
+<Steps>
+  <Step title="Start with HTML">
+    Learn HTML structure and common elements. Practice by creating simple web pages.
+  </Step>
+  
+  <Step title="Add CSS Styling">
+    Learn CSS basics, then move to flexbox and responsive design. Style your HTML pages.
+  </Step>
+  
+  <Step title="Learn JavaScript Basics">
+    Start with variables, functions, and DOM manipulation. Add interactivity to your pages.
+  </Step>
+  
+  <Step title="Git for Collaboration">
+    Learn Git basics and practice making pull requests. Start contributing to projects!
+  </Step>
+  
+  <Step title="Advanced Topics">
+    Explore accessibility, performance optimization, and advanced JavaScript patterns.
+  </Step>
+</Steps>
+
+## Testing Your Skills
+
+Ready to contribute? Try these challenges:
+
+<CardGroup cols={2}>
+  <Card title="Beginner Challenge" icon="seedling">
+    Add alt text to all images in a project. This improves accessibility without requiring coding skills.
+  </Card>
+  <Card title="CSS Challenge" icon="palette">
+    Improve button hover effects or adjust spacing for better visual hierarchy.
+  </Card>
+  <Card title="JavaScript Challenge" icon="code">
+    Add keyboard navigation (arrow keys) to navigate between lessons.
+  </Card>
+  <Card title="Responsive Challenge" icon="mobile">
+    Ensure the navigation works well on mobile devices with smaller screens.
+  </Card>
+</CardGroup>
+
+## Getting Help
+
+<Info>
+**Stuck on something?** Here's how to get help:
+</Info>
+
+- **Ask in the issue**: Comment on the GitHub issue you're working on
+- **Search documentation**: Check MDN or other learning resources
+- **Use DevTools**: Inspect elements and console to debug
+- **Community channels**: Reach out through our community platforms
+
+<Tip>
+When asking for help, include:
+- What you're trying to do
+- What you've tried
+- What error you're seeing (with screenshots if possible)
+- Relevant code snippets
+</Tip>
+
+## Continuous Learning
+
+Development skills improve with practice. Here are ways to keep learning:
+
+- **Build small projects**: Create your own web pages to practice
+- **Read other people's code**: Learn from existing contributions in the repository
+- **Follow tutorials**: Complete courses on freeCodeCamp, MDN, or JavaScript.info
+- **Contribute regularly**: Each contribution teaches you something new
+- **Ask questions**: There are no silly questions in our community
+
+<Note>
+Every expert was once a beginner. The key is consistent practice and curiosity. Keep learning, keep contributing!
+</Note>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Make Your First Contribution" icon="code-branch" href="/volunteers/first-contribution">
+    Ready to contribute? Follow our step-by-step guide
+  </Card>
+  <Card title="Getting Started" icon="rocket" href="/volunteers/getting-started">
+    Review the volunteer onboarding process
+  </Card>
+</CardGroup>
