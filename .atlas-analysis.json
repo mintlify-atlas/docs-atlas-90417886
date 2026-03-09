@@ -1,0 +1,76 @@
+{
+  "projectType": "general",
+  "projectName": "ProjetosVoluntariosTech",
+  "projectDescription": "Drive digital transformation for microentrepreneurs and community initiatives through volunteer-based tech and AI solutions.",
+  "theme": "almond",
+  "primaryColor": "#2b6cb0",
+  "lightColor": "#ed8936",
+  "darkColor": "#1a365d",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "mission"
+            ]
+          },
+          {
+            "group": "For Volunteers",
+            "pages": [
+              "volunteers/getting-started",
+              "volunteers/first-contribution",
+              "volunteers/skill-requirements"
+            ]
+          },
+          {
+            "group": "Projects",
+            "pages": [
+              "projects/overview",
+              "projects/escola-biblica",
+              "projects/solucao-refrigeracao"
+            ]
+          },
+          {
+            "group": "Contributing",
+            "pages": [
+              "contributing/how-to-contribute",
+              "contributing/code-guidelines",
+              "contributing/project-workflow"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Community",
+        "groups": [
+          {
+            "group": "Resources",
+            "pages": [
+              "community/join",
+              "community/events",
+              "community/faq"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Volunteer-driven tech projects for local communities",
+    "Educational resources and beginner-friendly contributions",
+    "Real-world HTML/CSS/JavaScript project templates",
+    "Community-focused digital transformation initiatives",
+    "Support for microentrepreneurs and non-profit organizations"
+  ],
+  "publicApiSurface": [
+    "projeto1-Escola-Biblica/index.html - Interactive Bible school portal with calendar, quizzes, and rankings",
+    "projeto1-solucao-refrigeracao/index.html - Business website for refrigeration and electrical services",
+    "Community volunteer contribution workflow",
+    "Project template structure for new community initiatives"
+  ]
+}
